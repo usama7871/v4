@@ -33,83 +33,18 @@ const StyledText = styled.div`
       margin-bottom: 10px;
       padding-left: 20px;
       font-family: var(--font-mono);
-      font-size: var(--fz-xs);
-
-      &:before {
-        content: '▹';
-        position: absolute;
-        left: 0;
-        color: var(--green);
-        font-size: var(--fz-sm);
-        line-height: 12px;
-      }
     }
   }
 `;
+
 const StyledPic = styled.div`
-  position: relative;
-  max-width: 300px;
-
-  @media (max-width: 768px) {
-    margin: 50px auto 0;
-    width: 70%;
-  }
-
   .wrapper {
     ${({ theme }) => theme.mixins.boxShadow};
     display: block;
     position: relative;
     width: 100%;
     border-radius: var(--border-radius);
-    background-color: var(--green);
-
-    &:hover,
-    &:focus {
-      outline: 0;
-      transform: translate(-4px, -4px);
-
-      &:after {
-        transform: translate(8px, 8px);
-      }
-
-      .img {
-        filter: none;
-        mix-blend-mode: normal;
-      }
-    }
-
-    .img {
-      position: relative;
-      border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1);
-      transition: var(--transition);
-    }
-
-    &:before,
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: var(--border-radius);
-      transition: var(--transition);
-    }
-
-    &:before {
-      top: 0;
-      left: 0;
-      background-color: var(--navy);
-      mix-blend-mode: screen;
-    }
-
-    &:after {
-      border: 2px solid var(--green);
-      top: 14px;
-      left: 14px;
-      z-index: -1;
-    }
+    background-color: var(--green-tint);
   }
 `;
 
@@ -121,11 +56,29 @@ const About = () => {
     if (prefersReducedMotion) {
       return;
     }
-
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
+  // Updated skills from CV
+  const skills = [
+    'Python',
+    'TypeScript',
+    'LangChain',
+    'OpenAI Agents SDK',
+    'n8n',
+    'Next.js',
+    'PyTorch',
+    'TensorFlow',
+    'RAG / Retrieval',
+    'MERN Stack',
+    'MEAN Stack',
+    'PERN Stack',
+    'GitHub Copilot',
+    'Docker',
+    'Firebase',
+    'Jupyter Notebook',
+    'Flutter',
+  ];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -135,49 +88,42 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! My name is Brittany and I enjoy creating things that live on the internet. My
-              interest in web development started back in 2012 when I decided to try editing custom
-              Tumblr themes — turns out hacking together a custom reblog button taught me a lot
-              about HTML &amp; CSS!
+              <strong>USAMA M ABDULLAH</strong> — Full Stack Developer, Agentic AI Developer & Automation Specialist.
+              Fast-learning developer focused on agentic AI using Python, TypeScript, LangChain,
+              OpenAI Agents SDK, and n8n. Built production AI agents, RAG pipelines, and automated
+              workflows with seamless API integrations in freelance work. Eager to ship scalable,
+              impactful AI solutions.
             </p>
 
             <p>
-              Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://us.mullenlowe.com/">an advertising agency</a>,{' '}
-              <a href="https://starry.com/">a start-up</a>,{' '}
-              <a href="https://www.apple.com/">a huge corporation</a>, and{' '}
-              <a href="https://scout.camd.northeastern.edu/">a student-led design studio</a>. My
-              main focus these days is building accessible, inclusive products and digital
-              experiences at <a href="https://upstatement.com/">Upstatement</a> for a variety of
-              clients.
+              Technical highlights: designed and implemented retrieval-augmented generation (RAG) pipelines,
+              built autonomous agents using LangChain and OpenAI Agents SDK, and automated workflows with n8n.
+              Experienced integrating third-party APIs, optimizing systems for reliability, and deploying
+              production-ready AI services.
             </p>
 
             <p>
-              I also recently{' '}
-              <a href="https://www.newline.co/courses/build-a-spotify-connected-app">
-                launched a course
-              </a>{' '}
-              that covers everything you need to build a web app with the Spotify API using Node
-              &amp; React.
+              Contact: Email <a href="mailto:kğusamakhan1234@gmail.com">kusamakhan1234@gmail.com</a> •
+              Phones: +92 315 499 6438, +92 305 215 0446 • Location: Karachi, Pakistan
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>
           </div>
 
           <ul className="skills-list">
-            {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
-          </ul>
+            {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}</ul>
         </StyledText>
 
         <StyledPic>
           <div className="wrapper">
+            {/* Replace the image file with the file you will upload: src/images/profile_usama.jpg */}
             <StaticImage
               className="img"
-              src="../../images/me.jpg"
+              src="../../images/profile_usama.jpg"
               width={500}
               quality={95}
-              formats={['AUTO', 'WEBP', 'AVIF']}
-              alt="Headshot"
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="USAMA ABDULLAH — Headshot"
             />
           </div>
         </StyledPic>
